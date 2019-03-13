@@ -15,8 +15,9 @@ console.log("apiManager")
 //     for (let i = 0; i < 
 // }
 
-const zomatoCall = (search_string) => {
-    fetch(
+const getRestaurant = (search_string) => {
+    return fetch(
+    
             `https://developers.zomato.com/api/v2.1/search?entity_id=1138&entity_type=city&start=first&sort=rating&q=${search_string}`, {
                 headers: {
                     Accept: "application/json",
@@ -25,11 +26,10 @@ const zomatoCall = (search_string) => {
             }
         )
         .then(r => r.json())
-        .then(results => console.log(results));
 };
 
 
-zomatoCall("Chinese")
+// zomatoCall("Chinese")
 
 
 // https://developers.zomato.com/api/v2.1/categories
