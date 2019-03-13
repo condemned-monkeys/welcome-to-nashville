@@ -3,3 +3,21 @@ const getPark = (value) => {
     return fetch(`https://data.nashville.gov/resource/xbru-cfzi.json?${value}=Yes`)
         .then(response => response.json())
 }
+
+const ebToken = "FYOXQG3KRECQPYKYM4SU";
+const ebString = "";
+
+const getMeetup = (ebString) => {
+    return fetch(
+      `https://www.eventbriteapi.com/v3/events/search/?q=${ebString}&location.address=nashville&token=${ebToken}`,
+      {
+        headers: {
+          Accept: "application/json"
+        }
+      }
+    )
+      .then(r => r.json())
+    //   .then(results => console.log(results));
+  };
+
+  getMeetup(ebString);
