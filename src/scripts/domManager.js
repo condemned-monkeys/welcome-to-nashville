@@ -23,7 +23,7 @@ createElement("input", "text", "parks by feature", "", "parkFeature")
 createElement("button", "button", "", "search", "parkButton")
 
 createElement("input", "text", "restaurants by food type", "", "foodType")
-createElement("button", "button", "", "search", "restaurantButton")
+let restaurantButton = createElement("button", "button", "", "search", "restaurantButton")
 
 createElement("input", "text", "meetups by topic", "", "meetupTopic")
 createElement("button", "button", "", "search", "meetupButton")
@@ -33,6 +33,8 @@ createElement("button", "button", "", "search", "concertButton")
 //input fields and buttons end
 
 container.appendChild(formSection)
-formSection.appendChild(frag)
+const appendFrag = () => formSection.appendChild(frag)
+appendFrag()
 
+restaurantButton.addEventListener("click", handleRestaurant)
 
