@@ -38,5 +38,3 @@ const getPark = (value) => {
     return fetch(`https://data.nashville.gov/resource/xbru-cfzi.json?${value}=Yes`)
         .then(response => response.json())
 }
-
-
