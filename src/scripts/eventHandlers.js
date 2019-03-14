@@ -104,16 +104,28 @@ const handleMeetup = () => {
         
         for (let i = 0; i < parsedValue.events.length; i++) {
             let listItem = document.createElement("li")
+            listItem.classList.add("valueSave" + [i])
             listItem.textContent = parsedValue.events[i].name.text 
             let loopButton = document.createElement("button")
             loopButton.textContent = "save"
-            loopButton.classList.add("saveButton")
+            loopButton.classList.add("saveButton" + [i])
             orderList.appendChild(listItem)
             orderList.appendChild(loopButton)
             console.log(i)
         }
         
         container.appendChild(orderList)
+
+        for (let i = 0; i < parsedValue.events.length; i++) {
+            let liValue = document.querySelector(".valueSave" + [i]).textContent
+            let saveButton = document.querySelector(".saveButton" + [i])
+            let meetupObject = {
+                meetup: liValue
+            }
+            saveButton.addEventListener("click", () => {
+                putPark(meetupObject)
+            })
+        }
     })
    
     while (orderList.firstChild) {
