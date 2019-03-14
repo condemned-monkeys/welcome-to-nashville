@@ -77,7 +77,9 @@ const putPark = (newParkObject) => {
 }
 
 
+
 const getItinerary = () => {
   return fetch ("http://localhost:8088/itinerary")
     .then(response => response.json())
 }
+

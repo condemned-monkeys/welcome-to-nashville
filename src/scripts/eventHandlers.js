@@ -44,6 +44,16 @@ const handleRestaurant = () => {
             }
 
             container.appendChild(orderList)
+            for (let i = 0; i < parsedValue.restaurants.length; i++) {
+                let liValue = document.querySelector(".valueSave" + [i]).textContent
+                let saveButton = document.querySelector(".saveButton" + [i])
+                let foodObject = {
+                    restaurant: liValue
+                }
+                saveButton.addEventListener("click", () => {
+                    putPark(foodObject)
+                })
+            }
 
         })
     while (orderList.firstChild) {
@@ -127,28 +137,6 @@ const handlePark = () => {
 
 
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 const handleMeetup = () => {
     const meetupValue = document.querySelector(".meetupTopic").value;
 
@@ -156,23 +144,36 @@ const handleMeetup = () => {
 
     getMeetup(meetupValue)
 
-        .then(parsedValue => {
-            console.log(parsedValue)
 
-            for (let i = 0; i < parsedValue.events.length; i++) {
-                let listItem = document.createElement("li")
-                listItem.textContent = parsedValue.events[i].name.text
-                let loopButton = document.createElement("button")
-                loopButton.textContent = "save"
-                loopButton.classList.add("saveButton")
-                orderList.appendChild(listItem)
-                orderList.appendChild(loopButton)
-                console.log(i)
+    .then(parsedValue => {
+        console.log(parsedValue)
+        
+        for (let i = 0; i < parsedValue.events.length; i++) {
+            let listItem = document.createElement("li")
+            listItem.classList.add("valueSave" + [i])
+            listItem.textContent = parsedValue.events[i].name.text 
+            let loopButton = document.createElement("button")
+            loopButton.textContent = "save"
+            loopButton.classList.add("saveButton" + [i])
+            orderList.appendChild(listItem)
+            orderList.appendChild(loopButton)
+            console.log(i)
+        }
+        
+        container.appendChild(orderList)
+
+        for (let i = 0; i < parsedValue.events.length; i++) {
+            let liValue = document.querySelector(".valueSave" + [i]).textContent
+            let saveButton = document.querySelector(".saveButton" + [i])
+            let meetupObject = {
+                meetup: liValue
             }
-
-            container.appendChild(orderList)
-        })
-
+            saveButton.addEventListener("click", () => {
+                putPark(meetupObject)
+            })
+        }
+    })
+  
     while (orderList.firstChild) {
         orderList.removeChild(orderList.firstChild);
     }
@@ -203,6 +204,17 @@ const handleConcert = () => {
                 orderList.appendChild(loopButton)
             }
             container.appendChild(orderList)
+            
+            for (let i = 0; i < parsed._embedded.events.length; i++) {
+                let liValue = document.querySelector(".valueSave" + [i]).textContent
+                let saveButton = document.querySelector(".saveButton" + [i])
+                let concertObject = {
+                    concert: liValue
+                }
+                saveButton.addEventListener("click", () => {
+                    putPark(concertObject)
+                })
+            }
         })
     // while loop removes the each LI element so when the button is clicked again, it will remove and replace it with new information based on criteria from the text input box.
     while (orderList.firstChild) {
