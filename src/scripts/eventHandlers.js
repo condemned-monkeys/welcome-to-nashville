@@ -1,6 +1,24 @@
 let orderList = document.createElement("ol")
 orderList.id = "orderListId";
 
+// const createItinerary = (response, key) => {
+//     let itineraryTitle = document.createElement("h1")
+//     itineraryTitle.textContent = "My itinerary"
+//     let ul = document.createElement("ul")
+//     let li1 = document.createElement("li")
+//     let li2 = document.createElement("li")
+//     let li3 = document.createElement("li")
+//     let li4 = document.createElement("li")
+//     li1.textContent = "Park: " + response.key
+//     li2.textContent = "Restaurant: " + response.key
+//     li3.textContent = "Meetup: " + response.key
+//     li4.textContent = "Concert: " + response.key
+//     ul.appendChild(li1)
+//     ul.appendChild(li2)
+//     ul.appendChild(li3)
+//     ul.appendChild(li4)
+// }
+
 
 const handleRestaurant = () => {
     // Selecting the input field with the class name of 'foodType' and assigning to variable 'foodInput'
@@ -73,6 +91,7 @@ const handlePark = () => {
             }
 
             container.appendChild(orderList)
+            let div = document.createElement("div");
 
             for (let i = 0; i < parsedValue.length; i++) {
                 let liValue = document.querySelector(".valueSave" + [i]).textContent
@@ -82,6 +101,20 @@ const handlePark = () => {
                 }
                 saveButton.addEventListener("click", () => {
                     putPark(parkObject)
+                        .then(() => getItinerary())
+                        .then(parsedItinerary => {
+
+                            ul = document.createElement("ul");
+                            let li = document.createElement("li");
+                            li.textContent = parsedItinerary.park
+                            ul.appendChild(li);
+                            div.appendChild(ul)
+                            container.appendChild(div);
+
+                        })
+                    while (div.firstChild) {
+                        div.removeChild(div.firstChild);
+                    }
                 })
             }
 
@@ -116,32 +149,30 @@ const handlePark = () => {
 
 
 
-
-
 const handleMeetup = () => {
     const meetupValue = document.querySelector(".meetupTopic").value;
 
     console.log(meetupValue);
-    
+
     getMeetup(meetupValue)
 
-    .then(parsedValue => {
-        console.log(parsedValue)
-        
-        for (let i = 0; i < parsedValue.events.length; i++) {
-            let listItem = document.createElement("li")
-            listItem.textContent = parsedValue.events[i].name.text 
-            let loopButton = document.createElement("button")
-            loopButton.textContent = "save"
-            loopButton.classList.add("saveButton")
-            orderList.appendChild(listItem)
-            orderList.appendChild(loopButton)
-            console.log(i)
-        }
-        
-        container.appendChild(orderList)
-    })
-   
+        .then(parsedValue => {
+            console.log(parsedValue)
+
+            for (let i = 0; i < parsedValue.events.length; i++) {
+                let listItem = document.createElement("li")
+                listItem.textContent = parsedValue.events[i].name.text
+                let loopButton = document.createElement("button")
+                loopButton.textContent = "save"
+                loopButton.classList.add("saveButton")
+                orderList.appendChild(listItem)
+                orderList.appendChild(loopButton)
+                console.log(i)
+            }
+
+            container.appendChild(orderList)
+        })
+
     while (orderList.firstChild) {
         orderList.removeChild(orderList.firstChild);
     }
