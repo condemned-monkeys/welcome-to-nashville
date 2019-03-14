@@ -92,32 +92,6 @@ const handlePark = () => {
     }
 }
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 const handleMeetup = () => {
     const meetupValue = document.querySelector(".meetupTopic").value;
 
@@ -184,6 +158,17 @@ const handleConcert = () => {
                 orderList.appendChild(loopButton)
             }
             container.appendChild(orderList)
+            
+            for (let i = 0; i < parsed._embedded.events.length; i++) {
+                let liValue = document.querySelector(".valueSave" + [i]).textContent
+                let saveButton = document.querySelector(".saveButton" + [i])
+                let concertObject = {
+                    concert: liValue
+                }
+                saveButton.addEventListener("click", () => {
+                    putPark(concertObject)
+                })
+            }
         })
     // while loop removes the each LI element so when the button is clicked again, it will remove and replace it with new information based on criteria from the text input box.
     while (orderList.firstChild) {
