@@ -4,6 +4,7 @@ const getPark = (value) => {
         .then(response => response.json())
 }
 
+
 const ebToken = "FYOXQG3KRECQPYKYM4SU";
 const ebString = "";
 
@@ -21,3 +22,8 @@ const getMeetup = (ebString) => {
   };
 
   getMeetup(ebString);
+
+const getTicketmaster = (value) => {
+    return fetch(`https://app.ticketmaster.com/discovery/v2/events.json?apikey=QKR7sYWGTQBc6cD1N3neXFCkbr92yttr&city=Nashville&countryCode=US&classificationName=${value}`)
+        .then(response => response.json())
+}
