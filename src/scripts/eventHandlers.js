@@ -1,4 +1,5 @@
 let orderList = document.createElement("ol")
+orderList.id = "orderListId";
 
 
 const handleRestaurant = () => {
@@ -9,10 +10,12 @@ const handleRestaurant = () => {
     console.log(foodInput)
 
     getRestaurant(foodInput)
-        .then(parsedValue => {console.log(parsedValue)
+        .then(parsedValue => {
+            console.log(parsedValue)
 
             for (let i = 0; i < parsedValue.restaurants.length; i++) {
                 let listItem = document.createElement("li")
+                listItem.classList.add("valueSave" + [i])
                 listItem.textContent = parsedValue.restaurants[i].restaurant.name + ":  " + parsedValue.restaurants[i].restaurant.location.address
                 let loopButton = document.createElement("button")
                 loopButton.textContent = "save"
@@ -25,10 +28,10 @@ const handleRestaurant = () => {
             container.appendChild(orderList)
 
         })
-        while (orderList.firstChild) {
-            orderList.removeChild(orderList.firstChild);
-        }
+    while (orderList.firstChild) {
+        orderList.removeChild(orderList.firstChild);
     }
+}
 
 
 
@@ -60,6 +63,7 @@ const handlePark = () => {
             //             // loops through the response of parsedValue, which is the targeted values. parsedValue will equal the response from the URL that contains the search criteria. the length also equals the amount of parks that have the criteria. parsedValue.length equals the amount of parks that have dog park, hiking, etc. the loop creates LI elements to be planted into the order list and then assign text content to each LI element. the text content equals the array and then using dot notation to target exactly what we want to be used. this also creates a button for each LI
             for (let i = 0; i < parsedValue.length; i++) {
                 let listItem = document.createElement("li")
+                listItem.classList.add("valueSave" + [i])
                 listItem.textContent = parsedValue[i].park_name + ":  " + parsedValue[i].mapped_location_address
                 let loopButton = document.createElement("button")
                 loopButton.textContent = "save"
@@ -82,24 +86,25 @@ const handleMeetup = () => {
     const meetupValue = document.querySelector(".meetupTopic").value;
     let meetup = meetupValue
     console.log(meetupValue);
-    
+
     getMeetup(meetupValue)
-    .then(parsedValue => {
-        console.log(parsedValue)
-        
-        for (let i = 0; i < parsedValue.events.length; i++) {
-            let listItem = document.createElement("li")
-            listItem.textContent = parsedValue.events[i].name.text 
-            let loopButton = document.createElement("button")
-            loopButton.textContent = "save"
-            loopButton.classList.add("saveButton" + [i])
-            orderList.appendChild(listItem)
-            orderList.appendChild(loopButton)
-            console.log(i)
-        }
-        
-        container.appendChild(orderList)
-    })
+        .then(parsedValue => {
+            console.log(parsedValue)
+
+            for (let i = 0; i < parsedValue.events.length; i++) {
+                let listItem = document.createElement("li")
+                listItem.classList.add("valueSave" + [i])
+                listItem.textContent = parsedValue.events[i].name.text
+                let loopButton = document.createElement("button")
+                loopButton.textContent = "save"
+                loopButton.classList.add("saveButton" + [i])
+                orderList.appendChild(listItem)
+                orderList.appendChild(loopButton)
+                console.log(i)
+            }
+
+            container.appendChild(orderList)
+        })
     while (orderList.firstChild) {
         orderList.removeChild(orderList.firstChild);
     }
@@ -114,24 +119,25 @@ const handleConcert = () => {
     // getTicketmaster function is define in apiManager.js, this only fetch URL and coverts the return into js.
     //the function takes an argument which is planted into the URL to target the information you want
     //selectValue will equal things like rap, country, rock, etc. 
-    getTicketmaster(selectValue)   
-    .then(parsed => {console.log(parsed) 
+    getTicketmaster(selectValue)
+        .then(parsed => {
+            console.log(parsed)
 
-        // loops through the response of parsed objects, which is the targeted values. parsed will equal the response from the URL that contains the search criteria. the length also equals the amount of concerts that have the criteria. parsed.length equals the amount of concerts that have rap, country, rock, etc. the loop creates LI elements to be planted into the order list and then assign text content to each LI element. the text content equals the array and then using dot notation to target exactly what we want to be used. this also creates a button for each LI
-        for (let i = 0; i < parsed._embedded.events.length; i++){
-            let listItem = document.createElement("li")
+            // loops through the response of parsed objects, which is the targeted values. parsed will equal the response from the URL that contains the search criteria. the length also equals the amount of concerts that have the criteria. parsed.length equals the amount of concerts that have rap, country, rock, etc. the loop creates LI elements to be planted into the order list and then assign text content to each LI element. the text content equals the array and then using dot notation to target exactly what we want to be used. this also creates a button for each LI
+            for (let i = 0; i < parsed._embedded.events.length; i++) {
+                let listItem = document.createElement("li")
+                listItem.classList.add("valueSave" + [i])
                 listItem.textContent = parsed._embedded.events[i].name
                 let loopButton = document.createElement("button")
                 loopButton.textContent = "save"
                 loopButton.classList.add("saveButton" + [i])
                 orderList.appendChild(listItem)
                 orderList.appendChild(loopButton)
-        }
-        container.appendChild(orderList)
-})
-// while loop removes the each LI element so when the button is clicked again, it will remove and replace it with new information based on criteria from the text input box.
-while (orderList.firstChild) {
-    orderList.removeChild(orderList.firstChild);
- }
+            }
+            container.appendChild(orderList)
+        })
+    // while loop removes the each LI element so when the button is clicked again, it will remove and replace it with new information based on criteria from the text input box.
+    while (orderList.firstChild) {
+        orderList.removeChild(orderList.firstChild);
+    }
 }
-
