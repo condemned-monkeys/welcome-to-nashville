@@ -26,6 +26,16 @@ const handleRestaurant = () => {
             }
 
             container.appendChild(orderList)
+            for (let i = 0; i < parsedValue.restaurants.length; i++) {
+                let liValue = document.querySelector(".valueSave" + [i]).textContent
+                let saveButton = document.querySelector(".saveButton" + [i])
+                let foodObject = {
+                    restaurant: liValue
+                }
+                saveButton.addEventListener("click", () => {
+                    putPark(foodObject)
+                })
+            }
 
         })
     while (orderList.firstChild) {
