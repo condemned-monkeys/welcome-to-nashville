@@ -62,3 +62,16 @@ const getTicketmaster = (value) => {
     return fetch(`https://app.ticketmaster.com/discovery/v2/events.json?apikey=QKR7sYWGTQBc6cD1N3neXFCkbr92yttr&city=Nashville&countryCode=US&classificationName=${value}`)
         .then(response => response.json())
 }
+
+
+
+const postPark = (newParkObject) => {
+  return fetch("http://localhost:8088/itinerary", {
+    method: "POST",
+    body: JSON.stringify(newParkObject),
+    headers: {
+      "Content-Type": "application/json"
+    }
+  })
+  .then(response => response.json())
+}
