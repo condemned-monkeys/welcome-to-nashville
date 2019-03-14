@@ -74,6 +74,16 @@ const handlePark = () => {
 
             container.appendChild(orderList)
 
+            for (let i = 0; i < parsedValue.length; i++) {
+                let liValue = document.querySelector(".valueSave" + [i]).textContent
+                let saveButton = document.querySelector(".saveButton" + [i])
+                let parkObject = {
+                    park: liValue
+                }
+                saveButton.addEventListener("click", () => {
+                    putPark(parkObject)
+                })
+            }
 
         })
     //     // while loop removes the each LI element so when the button is clicked again, it will remove and replace it with new information based on criteria from the drop down menu
@@ -82,12 +92,39 @@ const handlePark = () => {
     }
 }
 
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 const handleMeetup = () => {
     const meetupValue = document.querySelector(".meetupTopic").value;
 
     console.log(meetupValue);
     
     getMeetup(meetupValue)
+
     .then(parsedValue => {
         console.log(parsedValue)
         
@@ -104,7 +141,7 @@ const handleMeetup = () => {
         
         container.appendChild(orderList)
     })
-    
+   
     while (orderList.firstChild) {
         orderList.removeChild(orderList.firstChild);
     }
