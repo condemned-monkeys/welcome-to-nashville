@@ -45,8 +45,7 @@ const handlePark = () => {
 
 const handleMeetup = () => {
     const meetupValue = document.querySelector(".meetupTopic").value;
-    let meetup = meetupValue
-    console.log(meetupValue);
+    //console.log(meetupValue);
     
     getMeetup(meetupValue)
     .then(parsedValue => {
@@ -57,7 +56,7 @@ const handleMeetup = () => {
             listItem.textContent = parsedValue.events[i].name.text 
             let loopButton = document.createElement("button")
             loopButton.textContent = "save"
-            loopButton.classList.add("saveButton" + [i])
+            loopButton.classList.add("saveButton")
             orderList.appendChild(listItem)
             orderList.appendChild(loopButton)
             console.log(i)
