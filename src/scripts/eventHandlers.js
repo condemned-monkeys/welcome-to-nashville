@@ -81,7 +81,7 @@ const handlePark = () => {
                     park: liValue
                 }
                 saveButton.addEventListener("click", () => {
-                    postPark(parkObject)
+                    putPark(parkObject)
                 })
             }
 
@@ -140,6 +140,8 @@ const handleMeetup = () => {
             }
 
             container.appendChild(orderList)
+
+            
         })
     while (orderList.firstChild) {
         orderList.removeChild(orderList.firstChild);

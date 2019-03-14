@@ -65,9 +65,9 @@ const getTicketmaster = (value) => {
 
 
 
-const postPark = (newParkObject) => {
-  return fetch("http://localhost:8088/itinerary", {
-    method: "POST",
+const putPark = (newParkObject) => {
+  return fetch("http://localhost:8088/itinerary?id=1", {
+    method: "PATCH",
     body: JSON.stringify(newParkObject),
     headers: {
       "Content-Type": "application/json"
