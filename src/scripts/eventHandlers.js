@@ -85,7 +85,7 @@ const handlePark = () => {
 const handleMeetup = () => {
     const meetupValue = document.querySelector(".meetupTopic").value;
 
-    //console.log(meetupValue);
+    console.log(meetupValue);
     
     getMeetup(meetupValue)
     .then(parsedValue => {
@@ -104,29 +104,7 @@ const handleMeetup = () => {
         
         container.appendChild(orderList)
     })
-
-    let meetup = meetupValue
-    console.log(meetupValue);
-
-    getMeetup(meetupValue)
-        .then(parsedValue => {
-            console.log(parsedValue)
-
-            for (let i = 0; i < parsedValue.events.length; i++) {
-                let listItem = document.createElement("li")
-                listItem.classList.add("valueSave" + [i])
-                listItem.textContent = parsedValue.events[i].name.text
-                let loopButton = document.createElement("button")
-                loopButton.textContent = "save"
-                loopButton.classList.add("saveButton" + [i])
-                orderList.appendChild(listItem)
-                orderList.appendChild(loopButton)
-                console.log(i)
-            }
-
-            container.appendChild(orderList)
-        })
-
+    
     while (orderList.firstChild) {
         orderList.removeChild(orderList.firstChild);
     }
