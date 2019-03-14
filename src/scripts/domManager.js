@@ -66,9 +66,17 @@ createElement("input", "text", "concerts by genre", "", "concertGenre")
 createElement("button", "button", "", "search", "concertButton")
 //input fields and buttons end
 
+
+// Creating a container to receive saved itenerary results
+let iteneraryContainer = document.createElement("section")
+iteneraryContainer.classList.add("iteneraryContainer")
+iteneraryContainer.textContent = "My Itinerary"
+
 //appends everything into DOM
 formSection.appendChild(frag)
 container.appendChild(formSection)
+container.appendChild(iteneraryContainer)
+
 //puts button thats next to park into a variable
 const button = document.querySelector(".parkButton")
 const restaurantButton = document.querySelector(".restaurantButton")

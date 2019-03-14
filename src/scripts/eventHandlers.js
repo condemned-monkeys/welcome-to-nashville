@@ -1,6 +1,20 @@
 let orderList = document.createElement("ol")
 orderList.id = "orderListId";
 
+
+
+let div1 = document.createElement("div");
+div1.classList.add("iteneraryResults1")
+
+let div2 = document.createElement("div");
+div2.classList.add("iteneraryResults2")
+
+let div3 = document.createElement("div");
+div3.classList.add("iteneraryResults3")
+
+let div4 = document.createElement("div");
+div4.classList.add("iteneraryResults4")
+
 // const createItinerary = (response, key) => {
 //     let itineraryTitle = document.createElement("h1")
 //     itineraryTitle.textContent = "My itinerary"
@@ -52,13 +66,29 @@ const handleRestaurant = () => {
                 }
                 saveButton.addEventListener("click", () => {
                     putPark(foodObject)
-                })
-            }
+                    .then(() => getItinerary())
+                    .then(parsedItinerary => {
 
-        })
-    while (orderList.firstChild) {
-        orderList.removeChild(orderList.firstChild);
-    }
+                        let ul = document.createElement("ul");
+                        let li2 = document.createElement("li");
+                        li2.textContent = "Restaurant: " + parsedItinerary.restaurant
+                        ul.appendChild(li2)
+                    
+                        div2.appendChild(ul)
+                        iteneraryContainer.appendChild(div2);
+
+                    })
+                while (div2.firstChild) {
+                    div2.removeChild(div2.firstChild);
+                }
+            })
+        }
+
+    })
+//     // while loop removes the each LI element so when the button is clicked again, it will remove and replace it with new information based on criteria from the drop down menu
+while (orderList.firstChild) {
+    orderList.removeChild(orderList.firstChild);
+}
 }
 
 
@@ -101,8 +131,7 @@ const handlePark = () => {
             }
 
             container.appendChild(orderList)
-            let div = document.createElement("div");
-
+           
             for (let i = 0; i < parsedValue.length; i++) {
                 let liValue = document.querySelector(".valueSave" + [i]).textContent
                 let saveButton = document.querySelector(".saveButton" + [i])
@@ -114,16 +143,16 @@ const handlePark = () => {
                         .then(() => getItinerary())
                         .then(parsedItinerary => {
 
-                            ul = document.createElement("ul");
-                            let li = document.createElement("li");
-                            li.textContent = parsedItinerary.park
-                            ul.appendChild(li);
-                            div.appendChild(ul)
-                            container.appendChild(div);
+                            let ul = document.createElement("ul");
+                            let li1 = document.createElement("li");
+                            li1.textContent = "Park: " + parsedItinerary.park
+                            ul.appendChild(li1)                        
+                            div1.appendChild(ul)
+                            iteneraryContainer.appendChild(div1);
 
                         })
-                    while (div.firstChild) {
-                        div.removeChild(div.firstChild);
+                    while (div1.firstChild) {
+                        div1.removeChild(div1.firstChild);
                     }
                 })
             }
@@ -134,8 +163,6 @@ const handlePark = () => {
         orderList.removeChild(orderList.firstChild);
     }
 }
-
-
 
 const handleMeetup = () => {
     const meetupValue = document.querySelector(".meetupTopic").value;
@@ -170,13 +197,28 @@ const handleMeetup = () => {
             }
             saveButton.addEventListener("click", () => {
                 putPark(meetupObject)
-            })
-        }
-    })
-  
-    while (orderList.firstChild) {
-        orderList.removeChild(orderList.firstChild);
+                .then(() => getItinerary())
+                .then(parsedItinerary => {
+
+                    let ul = document.createElement("ul");
+                    let li3 = document.createElement("li");
+                    li3.textContent = "Meetup: " + parsedItinerary.meetup
+                    ul.appendChild(li3)                        
+                    div3.appendChild(ul)
+                    iteneraryContainer.appendChild(div3);
+
+                })
+                while (div3.firstChild) {
+                div3.removeChild(div3.firstChild);
+            }
+        })
     }
+
+})
+//     // while loop removes the each LI element so when the button is clicked again, it will remove and replace it with new information based on criteria from the drop down menu
+while (orderList.firstChild) {
+orderList.removeChild(orderList.firstChild);
+}
 }
 
 // this function is called from the event listener. the event listener is linked to the search button and is called in domManager.js
@@ -213,11 +255,28 @@ const handleConcert = () => {
                 }
                 saveButton.addEventListener("click", () => {
                     putPark(concertObject)
-                })
-            }
-        })
-    // while loop removes the each LI element so when the button is clicked again, it will remove and replace it with new information based on criteria from the text input box.
-    while (orderList.firstChild) {
-        orderList.removeChild(orderList.firstChild);
-    }
+                    .then(() => getItinerary())
+                    .then(parsedItinerary => {
+
+                        let ul = document.createElement("ul");
+                        
+                        let li4 = document.createElement("li");
+                        li4.textContent = "Concert: " + parsedItinerary.concert
+                        ul.appendChild(li4)
+                    
+                        div4.appendChild(ul)
+                        iteneraryContainer.appendChild(div4);
+
+                    })
+                while (div4.firstChild) {
+                    div4.removeChild(div4.firstChild);
+                }
+            })
+        }
+
+    })
+//     // while loop removes the each LI element so when the button is clicked again, it will remove and replace it with new information based on criteria from the drop down menu
+while (orderList.firstChild) {
+    orderList.removeChild(orderList.firstChild);
+}
 }
