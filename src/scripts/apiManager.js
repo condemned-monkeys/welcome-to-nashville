@@ -38,3 +38,8 @@ const getPark = (value) => {
     return fetch(`https://data.nashville.gov/resource/xbru-cfzi.json?${value}=Yes`)
         .then(response => response.json())
 }
+
+const getTicketmaster = (value) => {
+    return fetch(`https://app.ticketmaster.com/discovery/v2/events.json?apikey=QKR7sYWGTQBc6cD1N3neXFCkbr92yttr&city=Nashville&countryCode=US&classificationName=${value}`)
+        .then(response => response.json())
+}
