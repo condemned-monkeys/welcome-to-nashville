@@ -77,3 +77,7 @@ const button = document.querySelector(".parkButton")
 
 //eventlistener on parks button, then runs function that is in eventHandlers to take information, and return results of parks
 button.addEventListener("click", handlePark)
+
+const concertButton = document.querySelector(".concertButton")
+
+concertButton.addEventListener("click", handleConcert)
