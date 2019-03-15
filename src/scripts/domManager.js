@@ -14,6 +14,7 @@ select.id = "dropDown"
 console.log(container)
 
 
+
 // function to create basic elements to append to DOM
 function createElement(elementName, text, inputName, content, class1) {
     let element = document.createElement(elementName)
@@ -47,35 +48,51 @@ function createDropDown() {
 
 }
 
+// function to create image elements to append to DOM
+function createImageElement(elementName, src, image, alt, Id) {
+    let element = document.createElement(elementName)
+    element.src = src
+    element.type = image
+    element.alt = alt
+    element.id = Id
+    container.appendChild(element);
+}
+
+createImageElement("img", "images/nashville-skyline-dan-holland.jpg", "image", "Nashville Skyline Image!", "headerImage")
+
 //creates title and sub title
 createElement("h1", "", "", "Welcome to Nashville!", "title")
-createElement("h4", "", "", "Search for stuff to do today", "subTitle")
+createElement("h4", "", "", "Search for fun stuff to do around Nashville today!", "subTitle")
 //title and subtitle end
 
 //creates input fields and submit buttons
-createDropDown()
-createElement("button", "button", "", "search", "parkButton")
-
+createElement("h4", "", "", "What kind of food do you like?","")
 createElement("input", "text", "restaurants by food type", "", "foodType")
 createElement("button", "button", "", "search", "restaurantButton")
 
+createElement("h4", "", "", "What topics are you interested in?","")
 createElement("input", "text", "meetups by topic", "", "meetupTopic")
 createElement("button", "button", "", "search", "meetupButton")
 
+createElement("h4", "", "", "What genre of music do you like?","")
 createElement("input", "text", "concerts by genre", "", "concertGenre")
 createElement("button", "button", "", "search", "concertButton")
+
+createElement("h4", "", "", "What are you looking for in a park?","")
+createDropDown()
+createElement("button", "button", "", "search", "parkButton")
 //input fields and buttons end
 
 
 // Creating a container to receive saved itenerary results
-let iteneraryContainer = document.createElement("section")
-iteneraryContainer.classList.add("iteneraryContainer")
-iteneraryContainer.textContent = "My Itinerary"
+let itineraryContainer = document.createElement("section")
+itineraryContainer.classList.add("itineraryContainer")
+itineraryContainer.textContent = "My Itinerary"
 
 //appends everything into DOM
 formSection.appendChild(frag)
 container.appendChild(formSection)
-container.appendChild(iteneraryContainer)
+container.appendChild(itineraryContainer)
 
 //puts button thats next to park into a variable
 const button = document.querySelector(".parkButton")
