@@ -58,7 +58,7 @@ function createImageElement(elementName, src, image, alt, Id) {
     container.appendChild(element);
 }
 
-createImageElement("img", "images/nashville-skyline-dan-holland.jpg", "image", "Nashville Skyline Image!", "headerImage")
+createImageElement("img", "src/images/nashville-skyline-dan-holland.jpg", "image", "Nashville Skyline Image!", "headerImage")
 
 //creates title and sub title
 createElement("h1", "", "", "Welcome to Nashville!", "title")
