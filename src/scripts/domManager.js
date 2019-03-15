@@ -66,17 +66,21 @@ createElement("h4", "", "", "Search for fun stuff to do around Nashville today!"
 //title and subtitle end
 
 //creates input fields and submit buttons
-createDropDown()
-createElement("button", "button", "", "search", "parkButton")
-
+createElement("h4", "", "", "What kind of food do you like?","")
 createElement("input", "text", "restaurants by food type", "", "foodType")
 createElement("button", "button", "", "search", "restaurantButton")
 
+createElement("h4", "", "", "What topics are you interested in?","")
 createElement("input", "text", "meetups by topic", "", "meetupTopic")
 createElement("button", "button", "", "search", "meetupButton")
 
+createElement("h4", "", "", "What genre of music do you like?","")
 createElement("input", "text", "concerts by genre", "", "concertGenre")
 createElement("button", "button", "", "search", "concertButton")
+
+createElement("h4", "", "", "What are you looking for in a park?","")
+createDropDown()
+createElement("button", "button", "", "search", "parkButton")
 //input fields and buttons end
 
 
