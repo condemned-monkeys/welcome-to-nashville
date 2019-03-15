@@ -1,0 +1,57 @@
+#container {
+    display: flex;
+    /* background-color: rgb(58, 130, 238); */
+    flex-direction: column;
+    justify-content: center;
+}
+#formSection {
+    align-text: center;
+    background-color: rgb(163, 192, 248);
+}
+
+#headerImage {
+    display: flex;
+    style: flex-shrink: 0;
+    max-width:100%;
+    margin: 5px;
+    border-radius: 10px;
+}
+#formSection {
+    display: flex;
+    flex-direction: column;
+    /* justify-content: center; */
+    /* align-items: center; */
+    /* text-align: center; */
+    padding: 20px;
+    /* border-style: solid; */
+    margin: 10px;
+    border-radius: 10px;
+    box-shadow: 0px 0px 15px 5px rgb(89, 124, 196);
+}
+.title {
+    display: flex;
+    justify-content: center;
+    font-size: 30px;
+    margin: 0;
+    padding: 5px;
+}
+.subTitle {
+    display: flex;
+    justify-content: center;
+    margin: 0;
+    padding: 20px;
+    text-align: center;
+
+}
+.itineraryContainer {
+    display: flex;
+    align-content: center;
+    flex-direction: column;
+    font-size: 20px;
+    padding: 20px;
+    /* border-style: solid; */
+    background-color: rgb(163, 192, 248);
+    box-shadow: 0px 0px 15px 5px rgb(89, 124, 196);
+    margin: 10px;
+    border-radius: 10px;
+}

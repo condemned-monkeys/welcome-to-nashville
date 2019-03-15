@@ -75,7 +75,7 @@ const handleRestaurant = () => {
                         ul.appendChild(li2)
                     
                         div2.appendChild(ul)
-                        iteneraryContainer.appendChild(div2);
+                        itineraryContainer.appendChild(div2);
 
                     })
                 while (div2.firstChild) {
@@ -148,7 +148,7 @@ const handlePark = () => {
                             li1.textContent = "Park: " + parsedItinerary.park
                             ul.appendChild(li1)                        
                             div1.appendChild(ul)
-                            iteneraryContainer.appendChild(div1);
+                            itineraryContainer.appendChild(div1);
 
                         })
                     while (div1.firstChild) {
@@ -205,7 +205,7 @@ const handleMeetup = () => {
                     li3.textContent = "Meetup: " + parsedItinerary.meetup
                     ul.appendChild(li3)                        
                     div3.appendChild(ul)
-                    iteneraryContainer.appendChild(div3);
+                    itineraryContainer.appendChild(div3);
 
                 })
                 while (div3.firstChild) {
@@ -265,7 +265,7 @@ const handleConcert = () => {
                         ul.appendChild(li4)
                     
                         div4.appendChild(ul)
-                        iteneraryContainer.appendChild(div4);
+                        itineraryContainer.appendChild(div4);
 
                     })
                 while (div4.firstChild) {
