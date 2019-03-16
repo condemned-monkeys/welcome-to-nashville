@@ -24,9 +24,9 @@
 #formSection {
     display: flex;
     flex-direction: column;
-    /* justify-content: center; */
-    /* align-items: center; */
-    /* text-align: center; */
+    justify-content: center;
+    align-items: center;
+    text-align: center;
     padding: 20px;
     /* border-style: solid; */
     margin: 10px;
