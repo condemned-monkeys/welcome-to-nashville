@@ -66,7 +66,7 @@ const getTicketmaster = (value) => {
 
 
 const putPark = (newParkObject) => {
-  return fetch("https://condemned-monkeys.github.io/welcome-to-nashville/api/database.json", {
+  return fetch("https://api.myjson.com/bins/1exr66", {
     method: "PATCH",
     body: JSON.stringify(newParkObject),
     headers: {
@@ -79,7 +79,7 @@ const putPark = (newParkObject) => {
 
 
 const getItinerary = () => {
-  return fetch ("https://condemned-monkeys.github.io/welcome-to-nashville/api/database.json")
+  return fetch ("https://api.myjson.com/bins/1exr66")
     .then(response => response.json())
 }
 

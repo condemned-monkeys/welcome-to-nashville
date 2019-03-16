@@ -1,8 +1,6 @@
 let orderList = document.createElement("ol")
 orderList.id = "orderListId";
 
-
-
 let div1 = document.createElement("div");
 div1.classList.add("iteneraryResults1")
 
@@ -32,7 +30,6 @@ div4.classList.add("iteneraryResults4")
 //     ul.appendChild(li3)
 //     ul.appendChild(li4)
 // }
-
 
 const handleRestaurant = () => {
     // Selecting the input field with the class name of 'foodType' and assigning to variable 'foodInput'

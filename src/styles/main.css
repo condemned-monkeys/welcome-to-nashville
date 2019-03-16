@@ -2,7 +2,9 @@
     display: flex;
     /* background-color: rgb(58, 130, 238); */
     flex-direction: column;
-    justify-content: center;
+    align-items: center;
+    max-width: 1200px;
+    text-align: 
 }
 #formSection {
     align-text: center;
