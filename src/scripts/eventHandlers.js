@@ -47,7 +47,7 @@ const handleRestaurant = () => {
                 listItem.classList.add("valueSave" + [i])
                 listItem.textContent = parsedValue.restaurants[i].restaurant.name + ":  " + parsedValue.restaurants[i].restaurant.location.address
                 let loopButton = document.createElement("button")
-                loopButton.textContent = "save"
+                loopButton.textContent = "Save to your Itinerary"
                 loopButton.classList.add("saveButton" + [i])
                 orderList.appendChild(listItem)
                 orderList.appendChild(loopButton)
